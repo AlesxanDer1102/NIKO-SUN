@@ -9,8 +9,10 @@ test:
 	forge test
 
 deploy:
-	forge script script/DeploySolarToken.s.sol --rpc-url $(SYSCOIN_RPC_URL) --account $(ACCOUNT) --broadcast 
+	forge script script/DeploySolarToken.s.sol --rpc-url $(SYSCOIN_RPC_URL) --account $(ACCOUNT) --broadcast  
 
+deploy-fast:
+	forge create src/SolarTokenV1.sol:SolarTokenV1  --rpc-url $(SYSCOIN_RPC_URL) --account $(ACCOUNT) --broadcast  --constructor-args "https://api.nikosun.com/" -vvvvv
 verify:
 	forge verify-contract \
   --rpc-url https://rpc.tanenbaum.io \
